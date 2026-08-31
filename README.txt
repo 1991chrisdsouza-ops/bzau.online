@@ -1,9 +1,7 @@
-BZ SPORTS BONUS WHEEL
-
-1. Upload the entire sports-wheel folder to your hosting.
-2. Keep the images folder beside index.html.
-3. Open script.js and replace CLAIM_URL if your sports affiliate URL is different.
-4. The wheel is intentionally locked to segment index 1: Bet $10 Get $50.
-5. To reset a browser during testing, clear site data/localStorage for the domain.
-
-The visible prize list is preserved from the original wheel, but JavaScript never selects another prize.
+BABY STEPS
+1. Copy all files and the api + images folders into the bzau.online repository.
+2. Commit and push. Vercel deploys automatically.
+3. The browser fallback allows two spins per device immediately.
+4. For a true two-spins-per-IP limit, connect a Redis database in Vercel and expose KV_REST_API_URL and KV_REST_API_TOKEN.
+5. Firebase can be connected later in firebase-config.js and firebase-messaging-sw.js.
+6. Never put Firebase or Redis private tokens into browser files or GitHub.
