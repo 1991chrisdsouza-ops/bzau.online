@@ -1,1 +1,464 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
 
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#0f021e">
+
+  <title>Play 10, Get 50 - Sports Credit</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;700;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --dark-purple: #0f021e;
+      --purple: #230844;
+      --light-purple: #a842ff;
+      --gold: #ffc400;
+      --gold-light: #ffe880;
+      --gold-dark: #e49a00;
+      --white: #ffffff;
+      --muted: #d1c5dc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100svh;
+      overflow-x: hidden;
+
+      color: var(--white);
+      background-color: var(--dark-purple);
+
+      /*
+        Upload sports-finals-background.png
+        into the same GitHub folder as index.html.
+      */
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(7, 1, 13, 0.30),
+          rgba(10, 2, 19, 0.74) 34%,
+          rgba(10, 2, 19, 0.74) 66%,
+          rgba(7, 1, 13, 0.30)
+        ),
+        linear-gradient(
+          0deg,
+          rgba(5, 1, 10, 0.92),
+          transparent 60%
+        ),
+        url("sports-finals-background.png");
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      font-family: "Roboto", Arial, sans-serif;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          circle at 50% 42%,
+          rgba(119, 35, 210, 0.28),
+          transparent 42%
+        );
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+
+      width: min(100%, 760px);
+      padding:
+        max(30px, env(safe-area-inset-top))
+        22px
+        max(22px, env(safe-area-inset-bottom));
+
+      text-align: center;
+    }
+
+    .event-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+
+      margin: 0 0 14px;
+
+      color: #f3eafe;
+
+      font-family: "Anton", sans-serif;
+      font-size: clamp(21px, 4vw, 31px);
+      font-weight: 400;
+      letter-spacing: 2px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .event-title::before,
+    .event-title::after {
+      content: "";
+      width: 55px;
+      height: 2px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--light-purple)
+        );
+    }
+
+    .event-title::after {
+      transform: scaleX(-1);
+    }
+
+    .headline {
+      margin: 0;
+
+      color: var(--white);
+
+      font-family: "Anton", sans-serif;
+      font-size: clamp(68px, 13vw, 116px);
+      font-weight: 400;
+      letter-spacing: -1px;
+      line-height: 0.87;
+      text-transform: uppercase;
+
+      text-shadow:
+        0 7px 22px rgba(0, 0, 0, 0.95);
+    }
+
+    .headline .gold {
+      display: block;
+      margin-top: 12px;
+
+      font-size: 1.18em;
+
+      background:
+        linear-gradient(
+          #fff0a0 0%,
+          #ffdb39 28%,
+          #ffc400 52%,
+          #e49a00 100%
+        );
+
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+
+      -webkit-text-stroke:
+        1px rgba(255, 223, 76, 0.75);
+
+      filter:
+        drop-shadow(0 5px 0 #744300)
+        drop-shadow(0 8px 18px rgba(0, 0, 0, 0.7));
+    }
+
+    .credit-title {
+      margin: 18px 0 28px;
+
+      color: var(--white);
+
+      font-family: "Anton", sans-serif;
+      font-size: clamp(25px, 5.5vw, 42px);
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      line-height: 1;
+      text-transform: uppercase;
+
+      text-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.9);
+    }
+
+    .claim-card {
+      width: min(100%, 520px);
+      margin: 0 auto;
+      padding: 25px;
+
+      border:
+        1px solid rgba(255, 210, 54, 0.52);
+
+      border-radius: 24px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(42, 10, 68, 0.90),
+          rgba(8, 2, 14, 0.94)
+        );
+
+      box-shadow:
+        0 24px 65px rgba(0, 0, 0, 0.60),
+        inset 0 1px rgba(255, 255, 255, 0.12);
+
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .claim-card-title {
+      margin: 0 0 17px;
+
+      color: var(--white);
+
+      font-size: clamp(17px, 3vw, 20px);
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .claim-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      min-height: 68px;
+      padding: 14px 25px;
+
+      border:
+        2px solid rgba(255, 239, 151, 0.95);
+
+      border-radius: 999px;
+
+      color: #19032d;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--gold-light) 0%,
+          var(--gold) 58%,
+          var(--gold-dark) 100%
+        );
+
+      box-shadow:
+        0 6px 0 #8e5700,
+        0 14px 30px rgba(255, 196, 0, 0.32),
+        inset 0 2px rgba(255, 255, 255, 0.5);
+
+      font-family: "Anton", sans-serif;
+      font-size: clamp(27px, 5vw, 34px);
+      font-weight: 400;
+      letter-spacing: 1.2px;
+      line-height: 1;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.18s ease,
+        filter 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .claim-button:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.08);
+
+      box-shadow:
+        0 8px 0 #8e5700,
+        0 18px 38px rgba(255, 196, 0, 0.42),
+        inset 0 2px rgba(255, 255, 255, 0.5);
+    }
+
+    .claim-button:active {
+      transform: translateY(4px);
+
+      box-shadow:
+        0 2px 0 #8e5700,
+        0 7px 18px rgba(255, 196, 0, 0.25);
+    }
+
+    .claim-note {
+      margin: 18px 0 0;
+
+      color: var(--muted);
+
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .terms {
+      margin: 26px 0 0;
+
+      color: #e4ddea;
+
+      font-size: 12px;
+      letter-spacing: 0.3px;
+
+      text-shadow:
+        0 2px 7px rgba(0, 0, 0, 0.95);
+    }
+
+    .terms span {
+      margin: 0 9px;
+      color: #a587bd;
+    }
+
+    @media (max-width: 620px) {
+      body {
+        align-items: flex-end;
+        background-attachment: scroll;
+        background-position: center;
+      }
+
+      body::before {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(7, 1, 13, 0.15),
+            rgba(7, 1, 13, 0.60) 45%,
+            rgba(7, 1, 13, 0.98) 100%
+          ),
+          radial-gradient(
+            circle at 50% 36%,
+            rgba(119, 35, 210, 0.25),
+            transparent 46%
+          );
+      }
+
+      .page {
+        padding-top: 32px;
+      }
+
+      .event-title {
+        font-size: 21px;
+      }
+
+      .event-title::before,
+      .event-title::after {
+        width: 30px;
+      }
+
+      .headline {
+        font-size: clamp(62px, 19vw, 90px);
+      }
+
+      .headline .gold {
+        margin-top: 10px;
+      }
+
+      .credit-title {
+        margin: 17px 0 21px;
+      }
+
+      .claim-card {
+        padding: 19px;
+        border-radius: 20px;
+      }
+
+      .claim-button {
+        min-height: 62px;
+      }
+
+      .terms {
+        margin-top: 21px;
+      }
+    }
+
+    @media (max-height: 720px) and (min-width: 621px) {
+      .page {
+        padding-top: 18px;
+        padding-bottom: 16px;
+      }
+
+      .headline {
+        font-size: 78px;
+      }
+
+      .credit-title {
+        margin: 12px 0 18px;
+      }
+
+      .claim-card {
+        padding: 18px;
+      }
+
+      .terms {
+        margin-top: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <p class="event-title">
+      SPORTS
+    </p>
+
+    <h1 class="headline">
+      Play 10
+      <span class="gold">Get 50</span>
+    </h1>
+
+    <p class="credit-title">
+      In Sports Credit
+    </p>
+
+    <section class="claim-card">
+
+      <p class="claim-card-title">
+        Ready to get started?
+      </p>
+
+      <a
+        class="claim-button"
+        href="https://record.betzillopartners.com/_Lu3m47EoZY7T2Fu8bIPGIGNd7ZgqdRLk/19/"
+      >
+        Claim Now
+      </a>
+
+      <p class="claim-note">
+        Select Claim Now to continue.
+      </p>
+
+    </section>
+
+    <p class="terms">
+      18+
+      <span>|</span>
+      T&amp;Cs Apply
+      <span>|</span>
+      Gamble Responsibly
+    </p>
+
+  </main>
+
+</body>
+</html>
