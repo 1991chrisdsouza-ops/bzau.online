@@ -3,19 +3,594 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <meta name="theme-color" content="#07142b">
-  <meta name="description" content="Step into Sun of Egypt 3 and discover free spins, Hold & Win action and royal rewards.">
+  <meta
+    name="description"
+    content="Step into Sun of Egypt 3 and discover free spins, Hold & Win action and royal rewards."
+  >
+
   <title>Sun of Egypt 3 | BZ</title>
-  <link rel="preload" as="image" href="so3/assets/sun-of-egypt-desktop.webp" media="(min-width: 701px)">
-  <link rel="preload" as="image" href="so3/assets/sun-of-egypt-mobile.webp" media="(max-width: 700px)">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2307142b'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%23f9b62d'/%3E%3Cpath d='M32 4v9M32 51v9M4 32h9M51 32h9M12 12l7 7M45 45l7 7M52 12l-7 7M19 45l-7 7' stroke='%23ffe6a0' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="so3/styles.css">
+
+  <!-- Preload responsive images -->
+  <link
+    rel="preload"
+    as="image"
+    href="/so3/assets/sun-of-egypt-desktop.webp"
+    media="(min-width: 701px)"
+  >
+
+  <link
+    rel="preload"
+    as="image"
+    href="/so3/assets/sun-of-egypt-mobile.webp"
+    media="(max-width: 700px)"
+  >
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2307142b'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%23f9b62d'/%3E%3Cpath d='M32 4v9M32 51v9M4 32h9M51 32h9M12 12l7 7M45 45l7 7M52 12l-7 7M19 45l-7 7' stroke='%23ffe6a0' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E"
+  >
+
+  <!-- CSS included directly in HTML -->
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap");
+
+    :root {
+      --navy: #061328;
+      --navy-soft: #0d2344;
+      --gold: #f7b82f;
+      --gold-light: #ffe6a0;
+      --cream: #fff8e9;
+      --line: rgba(255, 220, 136, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 320px;
+      min-height: 100%;
+      background: var(--navy);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--cream);
+      font-family: Inter, Arial, sans-serif;
+      background: var(--navy);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 24px clamp(24px, 5vw, 88px) 42px;
+      overflow: hidden;
+    }
+
+    .hero__art,
+    .hero__art img,
+    .hero__shade {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero__art {
+      z-index: -4;
+      margin: 0;
+    }
+
+    .hero__art img {
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero__shade {
+      z-index: -3;
+      pointer-events: none;
+      background:
+        radial-gradient(
+          circle at 75% 40%,
+          transparent 0 23%,
+          rgba(2, 9, 22, 0.08) 50%
+        ),
+        linear-gradient(
+          90deg,
+          rgba(3, 11, 27, 0.96) 0%,
+          rgba(4, 14, 31, 0.83) 28%,
+          rgba(5, 15, 34, 0.30) 54%,
+          rgba(3, 10, 24, 0.08) 72%
+        ),
+        linear-gradient(
+          0deg,
+          rgba(3, 10, 24, 0.88) 0%,
+          transparent 35%
+        );
+    }
+
+    .topbar {
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: inherit;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+    }
+
+    .brand__mark {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 230, 160, 0.60);
+      border-radius: 50%;
+      color: #14213b;
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          #fff7c6 0%,
+          #ffc946 38%,
+          #b86b08 100%
+        );
+      box-shadow: 0 0 32px rgba(247, 184, 47, 0.30);
+      font-family: Cinzel, Georgia, serif;
+      font-weight: 800;
+      letter-spacing: -0.08em;
+    }
+
+    .brand__name {
+      color: var(--gold-light);
+      font-size: 0.84rem;
+    }
+
+    .topbar__note {
+      color: rgba(255, 255, 255, 0.70);
+      font-size: 0.75rem;
+    }
+
+    .hero__content {
+      z-index: 1;
+      align-self: center;
+      width: min(570px, 47vw);
+      margin: 28px 0 0 max(0px, calc((100vw - 1440px) / 2));
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      color: var(--gold-light);
+      font-size: 0.77rem;
+      font-weight: 700;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow span {
+      width: 34px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--cream);
+      font-family: Cinzel, Georgia, serif;
+      font-size: clamp(3.4rem, 6.2vw, 7.15rem);
+      font-weight: 800;
+      line-height: 0.82;
+      letter-spacing: -0.065em;
+      text-transform: uppercase;
+      text-shadow: 0 8px 40px rgba(0, 0, 0, 0.48);
+    }
+
+    h1 span {
+      display: block;
+      margin: 0 0 0.14em 0.06em;
+      color: var(--gold-light);
+      font-size: 0.44em;
+      letter-spacing: 0.20em;
+    }
+
+    h1 b {
+      color: var(--gold);
+      font-weight: 800;
+      text-shadow: 0 0 28px rgba(249, 182, 45, 0.44);
+    }
+
+    .intro {
+      max-width: 520px;
+      margin: 20px 0 22px;
+      color: rgba(255, 255, 255, 0.80);
+      font-size: clamp(1rem, 1.3vw, 1.13rem);
+      line-height: 1.55;
+    }
+
+    .offer-card {
+      position: relative;
+      max-width: 510px;
+      padding: 20px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(11, 31, 60, 0.90),
+          rgba(4, 15, 34, 0.78)
+        );
+      box-shadow:
+        0 26px 70px rgba(0, 0, 0, 0.35),
+        inset 0 1px rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .offer-card::before {
+      position: absolute;
+      inset: -1px auto -1px -1px;
+      width: 4px;
+      border-radius: 22px 0 0 22px;
+      background: linear-gradient(
+        var(--gold-light),
+        #a86407
+      );
+      content: "";
+    }
+
+    .offer-card__label {
+      margin: 0 0 5px;
+      color: var(--gold-light);
+      font-size: 0.71rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .offer-card__main {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .offer-card__main strong {
+      color: var(--gold);
+      font-family: Cinzel, Georgia, serif;
+      font-size: clamp(2.55rem, 4.4vw, 4.25rem);
+      line-height: 1;
+    }
+
+    .offer-card__main span {
+      padding-left: 14px;
+      border-left: 1px solid var(--line);
+      color: white;
+      font-size: clamp(0.95rem, 1.25vw, 1.12rem);
+      font-weight: 800;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .offer-card__main em {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+
+    .offer-card__features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .offer-card__features span {
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, 0.78);
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 56px;
+      padding: 0 24px;
+      border-radius: 13px;
+      color: #172035;
+      background:
+        linear-gradient(
+          180deg,
+          #ffe489,
+          #f5a916
+        );
+      box-shadow:
+        0 10px 30px rgba(246, 174, 31, 0.25),
+        inset 0 1px #fff4bf;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition:
+        transform 0.2s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .cta svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.06);
+      box-shadow:
+        0 15px 36px rgba(246, 174, 31, 0.34),
+        inset 0 1px #fff4bf;
+    }
+
+    .cta:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 4px;
+    }
+
+    .terms {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.52);
+      font-size: 0.72rem;
+    }
+
+    .game-stamp {
+      position: absolute;
+      right: clamp(24px, 5vw, 88px);
+      bottom: 42px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 15px 10px 10px;
+      border: 1px solid rgba(255, 229, 161, 0.35);
+      border-radius: 999px;
+      color: white;
+      background: rgba(5, 16, 35, 0.58);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .game-stamp small {
+      display: block;
+      margin-bottom: 2px;
+      color: rgba(255, 255, 255, 0.56);
+      font-size: 0.60rem;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .game-stamp__sun {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: #7a4503;
+      background: var(--gold);
+      box-shadow: 0 0 18px rgba(247, 184, 47, 0.38);
+    }
+
+    .sun-orbit {
+      position: absolute;
+      z-index: -2;
+      border: 1px solid rgba(255, 220, 132, 0.12);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: orbit 26s linear infinite;
+    }
+
+    .sun-orbit--one {
+      top: -170px;
+      right: -190px;
+      width: 560px;
+      height: 560px;
+    }
+
+    .sun-orbit--two {
+      top: -100px;
+      right: -120px;
+      width: 420px;
+      height: 420px;
+      animation-duration: 34s;
+      animation-direction: reverse;
+    }
+
+    @keyframes orbit {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero__content {
+        width: min(540px, 56vw);
+      }
+
+      .game-stamp {
+        display: none;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        min-height: 100vh;
+        min-height: 100svh;
+        padding: 18px 18px 26px;
+        grid-template-rows: auto minmax(660px, 1fr);
+      }
+
+      .hero__art img {
+        object-position: center top;
+      }
+
+      .hero__shade {
+        background:
+          linear-gradient(
+            0deg,
+            rgba(3, 10, 24, 0.99) 0%,
+            rgba(4, 13, 29, 0.95) 41%,
+            rgba(4, 13, 29, 0.28) 68%,
+            rgba(2, 8, 19, 0.08) 100%
+          );
+      }
+
+      .brand__mark {
+        width: 44px;
+      }
+
+      .brand__name {
+        display: none;
+      }
+
+      .topbar__note {
+        font-size: 0.68rem;
+      }
+
+      .hero__content {
+        align-self: end;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+      }
+
+      .eyebrow {
+        justify-content: center;
+        margin-bottom: 11px;
+        font-size: 0.68rem;
+      }
+
+      h1 {
+        font-size: clamp(3.2rem, 16vw, 5rem);
+      }
+
+      h1 span {
+        margin-left: 0;
+      }
+
+      .intro {
+        max-width: 430px;
+        margin: 13px auto 16px;
+        font-size: 0.94rem;
+        line-height: 1.42;
+      }
+
+      .offer-card {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 16px;
+        border-radius: 18px;
+        text-align: left;
+      }
+
+      .offer-card__main {
+        gap: 10px;
+      }
+
+      .offer-card__main strong {
+        font-size: clamp(2.45rem, 12vw, 3.6rem);
+      }
+
+      .offer-card__main span {
+        font-size: 0.88rem;
+      }
+
+      .offer-card__features {
+        justify-content: center;
+      }
+
+      .cta {
+        min-height: 54px;
+      }
+
+      .terms {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero {
+        grid-template-rows: auto minmax(620px, 1fr);
+      }
+
+      .offer-card__features span:last-child {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sun-orbit {
+        animation: none;
+      }
+
+      .cta {
+        transition: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <main class="hero">
+
     <picture class="hero__art" aria-hidden="true">
-      <source media="(max-width: 700px)" srcset="so3/assets/sun-of-egypt-mobile.webp">
-      <img src="so3/assets/sun-of-egypt-desktop.webp" alt="" width="1916" height="821">
+      <source
+        media="(max-width: 700px)"
+        srcset="/so3/assets/sun-of-egypt-mobile.webp"
+      >
+
+      <img
+        src="/so3/assets/sun-of-egypt-desktop.webp"
+        alt=""
+        width="1916"
+        height="821"
+      >
     </picture>
 
     <div class="hero__shade" aria-hidden="true"></div>
@@ -27,37 +602,84 @@
         <span class="brand__mark">BZ</span>
         <span class="brand__name">PLAY</span>
       </a>
-      <span class="topbar__note">18+ · Gamble Responsibly</span>
+
+      <span class="topbar__note">
+        18+ · Gamble Responsibly
+      </span>
     </header>
 
     <section class="hero__content" id="offer">
-      <p class="eyebrow"><span></span> Ancient riches await</p>
-      <h1><span>Sun of</span> Egypt <b>3</b></h1>
-      <p class="intro">Enter the golden temple and chase royal rewards beneath the blazing Egyptian sun.</p>
+
+      <p class="eyebrow">
+        <span></span>
+        Ancient riches await
+      </p>
+
+      <h1>
+        <span>Sun of</span>
+        Egypt <b>3</b>
+      </h1>
+
+      <p class="intro">
+        Enter the golden temple and chase royal rewards beneath
+        the blazing Egyptian sun.
+      </p>
 
       <div class="offer-card">
-        <p class="offer-card__label">Welcome offer</p>
+
+        <p class="offer-card__label">
+          Welcome offer
+        </p>
+
         <div class="offer-card__main">
           <strong>100%</strong>
-          <span>Welcome Match<br><em>+ 10 Free Spins</em></span>
+
+          <span>
+            Welcome Match
+            <br>
+            <em>+ 10 Free Spins</em>
+          </span>
         </div>
-        <div class="offer-card__features" aria-label="Game highlights">
+
+        <div
+          class="offer-card__features"
+          aria-label="Game highlights"
+        >
           <span>8 Free Spins</span>
           <span>Hold &amp; Win</span>
           <span>Royal Jackpot</span>
         </div>
-        <a class="cta" href="https://record.betzillopartners.com/_Lu3m47EoZY6ZM7hnoUx_dWNd7ZgqdRLk/11/" rel="nofollow sponsored">
+
+        <a
+          class="cta"
+          href="https://record.betzillopartners.com/_Lu3m47EoZY6ZM7hnoUx_dWNd7ZgqdRLk/11/"
+          rel="nofollow sponsored"
+        >
           <span>Join Now</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h13M13 6l6 6-6 6"></path>
+          </svg>
         </a>
       </div>
 
-      <p class="terms">New players only. Eligibility and full T&amp;Cs apply.</p>
+      <p class="terms">
+        New players only. Eligibility and full T&amp;Cs apply.
+      </p>
     </section>
 
-    <aside class="game-stamp" aria-label="Sun of Egypt 3 game highlights">
-      <span class="game-stamp__sun" aria-hidden="true">☀</span>
-      <span><small>Featured game</small>25 paylines · 3 respins</span>
+    <aside
+      class="game-stamp"
+      aria-label="Sun of Egypt 3 game highlights"
+    >
+      <span class="game-stamp__sun" aria-hidden="true">
+        ☀
+      </span>
+
+      <span>
+        <small>Featured game</small>
+        25 paylines · 3 respins
+      </span>
     </aside>
   </main>
 </body>
