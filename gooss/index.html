@@ -1,1 +1,116 @@
-
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07174a">
+  <meta name="description" content="Step through the Gates of Olympus and discover the Super Scatter experience at BZ.">
+  <title>Gates of Olympus Super Scatter | BZ</title>
+  <link rel="preload" as="image" href="assets/olympus-hero.png" media="(min-width: 701px)">
+  <link rel="preload" as="image" href="assets/olympus-mobile.png" media="(max-width: 700px)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307174a'/%3E%3Cpath d='M39 5 17 35h13l-5 24 23-34H35z' fill='%23ffd766'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --night: #050b2c;
+      --royal: #0b2a78;
+      --electric: #89d9ff;
+      --gold: #ffc93d;
+      --gold-pale: #fff2af;
+      --crimson: #dd203d;
+      --white: #fffdf7;
+      --line: rgba(255, 224, 132, .34);
+    }
+    * { box-sizing: border-box; }
+    html { min-width: 320px; min-height: 100%; background: var(--night); scroll-behavior: smooth; }
+    body { margin: 0; min-height: 100vh; color: var(--white); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--night); }
+    button, a { font: inherit; }
+    .hero { position: relative; isolation: isolate; min-height: 100vh; min-height: 100svh; overflow: hidden; padding: 24px clamp(22px, 5vw, 84px) 38px; display: grid; grid-template-rows: auto 1fr auto; }
+    .hero__art, .hero__art img, .hero__shade, .storm, .flash { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .hero__art { z-index: -6; margin: 0; }
+    .hero__art img { display: block; object-fit: cover; object-position: 62% center; }
+    .hero__shade { z-index: -5; background: radial-gradient(circle at 72% 44%, transparent 0 16%, rgba(4,8,30,.08) 45%), linear-gradient(90deg, rgba(3,7,27,.98) 0%, rgba(5,12,45,.91) 30%, rgba(5,14,51,.34) 56%, rgba(3,7,24,.05) 74%), linear-gradient(0deg, rgba(3,7,25,.9), transparent 32%); }
+    .storm { z-index: -4; opacity: .72; background: radial-gradient(circle at 50% 0%, rgba(98,191,255,.22), transparent 42%); mix-blend-mode: screen; }
+    .flash { z-index: -3; pointer-events: none; opacity: 0; background: radial-gradient(circle at 77% 33%, rgba(192,237,255,.9), rgba(78,161,255,.2) 22%, transparent 48%); animation: flash 7s infinite; }
+    @keyframes flash { 0%, 6%, 9%, 100% { opacity: 0; } 7% { opacity: .72; } 8% { opacity: .13; } }
+    .topbar { z-index: 2; width: min(1440px, 100%); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; color: inherit; text-decoration: none; }
+    .brand__mark { display: grid; place-items: center; width: 52px; aspect-ratio: 1; border: 1px solid rgba(255,239,171,.82); border-radius: 50%; color: #102058; background: radial-gradient(circle at 33% 25%, #fffbd1, #ffd248 42%, #ad6100 100%); box-shadow: 0 0 32px rgba(255,199,47,.4); font: 900 1rem/1 Georgia, serif; }
+    .brand__name { color: var(--gold-pale); font-size: .83rem; font-weight: 900; letter-spacing: .2em; }
+    .age { color: rgba(255,255,255,.76); font-size: .76rem; }
+    .hero__content { z-index: 1; align-self: center; width: min(585px, 49vw); margin: 34px 0 28px max(0px, calc((100vw - 1440px)/2)); }
+    .eyebrow { margin: 0 0 11px; display: flex; align-items: center; gap: 11px; color: var(--gold-pale); font-size: .76rem; font-weight: 800; letter-spacing: .19em; text-transform: uppercase; }
+    .eyebrow::before { width: 38px; height: 2px; background: linear-gradient(90deg, var(--electric), var(--gold)); box-shadow: 0 0 12px var(--electric); content: ""; }
+    h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-weight: 900; line-height: .82; letter-spacing: -.065em; text-transform: uppercase; text-shadow: 0 8px 38px rgba(0,0,0,.7); }
+    h1 .small { display: block; margin: 0 0 .12em .06em; color: var(--gold-pale); font-size: clamp(2.4rem, 4.1vw, 4.8rem); letter-spacing: -.03em; }
+    h1 .olympus { display: block; color: #fff; font-size: clamp(3.4rem, 6.2vw, 7.25rem); }
+    h1 .super { display: inline-block; margin: .25em 0 0 .05em; padding: .23em .52em .2em; border: 1px solid rgba(255,231,146,.72); border-radius: .22em; color: #fff4c7; background: linear-gradient(135deg, #ed2c45, #9b0924); box-shadow: 0 12px 36px rgba(190,9,45,.4), inset 0 1px rgba(255,255,255,.35); font: 900 clamp(1rem, 1.8vw, 1.65rem)/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .12em; transform: rotate(-1deg); }
+    .intro { max-width: 535px; margin: 17px 0 19px; color: rgba(255,255,255,.84); font-size: clamp(1rem, 1.25vw, 1.12rem); line-height: 1.5; }
+    .offer { position: relative; max-width: 520px; overflow: hidden; padding: 19px; border: 1px solid var(--line); border-radius: 22px; background: linear-gradient(135deg, rgba(15,40,106,.86), rgba(4,11,43,.82)); box-shadow: 0 24px 70px rgba(0,0,0,.4), inset 0 1px rgba(255,255,255,.1); backdrop-filter: blur(13px); }
+    .offer::before { position: absolute; inset: 0 auto 0 0; width: 4px; background: linear-gradient(var(--electric), var(--gold), var(--crimson)); content: ""; }
+    .offer__label { margin: 0 0 6px; color: var(--gold-pale); font-size: .72rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+    .offer__main { display: flex; align-items: center; gap: 15px; margin-bottom: 14px; }
+    .offer__main strong { color: var(--gold); font-family: Georgia, serif; font-size: clamp(2.8rem, 4.5vw, 4.4rem); line-height: .95; text-shadow: 0 0 24px rgba(255,201,61,.34); }
+    .offer__main span { padding-left: 15px; border-left: 1px solid var(--line); color: #fff; font-size: clamp(.92rem, 1.18vw, 1.1rem); font-weight: 900; line-height: 1.25; text-transform: uppercase; }
+    .offer__main em { color: var(--gold-pale); font-style: normal; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 15px; }
+    .chips span { padding: 7px 11px; border: 1px solid rgba(255,255,255,.13); border-radius: 999px; color: rgba(255,255,255,.86); background: rgba(255,255,255,.06); font-size: .74rem; font-weight: 700; }
+    .cta { min-height: 57px; padding: 0 25px; display: flex; align-items: center; justify-content: center; gap: 12px; border: 0; border-radius: 13px; color: #161c42; background: linear-gradient(180deg, #fff09d, #ffc02d); box-shadow: 0 12px 31px rgba(255,190,35,.3), inset 0 1px #fffbdc; font-size: 1rem; font-weight: 900; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; transition: transform .2s ease, filter .2s ease, box-shadow .2s ease; }
+    .cta svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+    .cta:hover { transform: translateY(-2px); filter: brightness(1.06); box-shadow: 0 17px 38px rgba(255,190,35,.42), inset 0 1px #fffbdc; }
+    .cta:focus-visible { outline: 3px solid white; outline-offset: 4px; }
+    .terms { margin: 10px 0 0; color: rgba(255,255,255,.56); font-size: .73rem; }
+    .stamp { z-index: 1; align-self: end; justify-self: end; display: flex; align-items: center; gap: 11px; padding: 10px 15px 10px 10px; border: 1px solid rgba(147,218,255,.45); border-radius: 999px; background: rgba(4,13,49,.62); backdrop-filter: blur(9px); color: white; font-size: .75rem; font-weight: 800; }
+    .stamp__bolt { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; color: #102058; background: linear-gradient(145deg, #cff3ff, #5bbdff); box-shadow: 0 0 18px rgba(96,194,255,.55); }
+    .stamp small { display: block; margin-bottom: 2px; color: rgba(255,255,255,.6); font-size: .61rem; letter-spacing: .1em; text-transform: uppercase; }
+    @media (max-width: 900px) { .hero__content { width: min(555px, 58vw); } .stamp { display: none; } }
+    @media (max-width: 700px) {
+      .hero { padding: 18px 17px max(25px, env(safe-area-inset-bottom)); grid-template-rows: auto minmax(680px, 1fr); }
+      .hero__art img { object-position: center top; }
+      .hero__shade { background: linear-gradient(0deg, rgba(3,7,28,.99) 0%, rgba(5,13,48,.96) 42%, rgba(5,14,50,.18) 70%, rgba(2,7,25,.05) 100%); }
+      .brand__mark { width: 44px; } .brand__name { display: none; } .age { font-size: .68rem; }
+      .hero__content { align-self: end; width: 100%; margin: 0; text-align: center; }
+      .eyebrow { justify-content: center; margin-bottom: 8px; font-size: .67rem; }
+      h1 .small { font-size: clamp(2.15rem, 10vw, 3.3rem); }
+      h1 .olympus { font-size: clamp(3.55rem, 17vw, 5.5rem); }
+      h1 .super { font-size: clamp(.95rem, 4vw, 1.25rem); }
+      .intro { max-width: 430px; margin: 13px auto 15px; font-size: .93rem; line-height: 1.42; }
+      .offer { max-width: 480px; margin: 0 auto; padding: 16px; text-align: left; border-radius: 18px; }
+      .offer__main { gap: 10px; } .offer__main strong { font-size: clamp(2.6rem, 12vw, 3.7rem); } .offer__main span { font-size: .88rem; }
+      .chips { justify-content: center; } .terms { text-align: center; }
+    }
+    @media (max-width: 390px) { .hero { grid-template-rows: auto minmax(640px, 1fr); } .chips span:last-child { display: none; } }
+    @media (prefers-reduced-motion: reduce) { .flash { animation: none; } .cta { transition: none; } }
+  </style>
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1512458710908588'); fbq('track','PageView');
+  </script>
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1512458710908588&amp;ev=PageView&amp;noscript=1" alt=""></noscript>
+  <main class="hero">
+    <picture class="hero__art" aria-hidden="true">
+      <source media="(max-width: 700px)" srcset="assets/olympus-mobile.png">
+      <img src="assets/olympus-hero.png" alt="" width="1920" height="1080">
+    </picture>
+    <div class="hero__shade" aria-hidden="true"></div><div class="storm" aria-hidden="true"></div><div class="flash" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#offer" aria-label="BZ offer"><span class="brand__mark">BZ</span><span class="brand__name">PLAY</span></a>
+      <span class="age">18+ · Gamble Responsibly</span>
+    </header>
+    <section class="hero__content" id="offer">
+      <p class="eyebrow">The gates are open</p>
+      <h1><span class="small">Gates of</span><span class="olympus">Olympus</span><span class="super">Super Scatter</span></h1>
+      <p class="intro">Step into the clouds, unleash the lightning and chase a super-charged spin on the heights of Olympus.</p>
+      <div class="offer">
+        <p class="offer__label">Welcome offer</p>
+        <div class="offer__main"><strong>100%</strong><span>Welcome Match<br><em>+ 10 Free Spins</em></span></div>
+        <div class="chips" aria-label="Game highlights"><span>Super Scatter</span><span>Tumble Wins</span><span>Thunder Multipliers</span></div>
+        <a class="cta" href="https://record.betzillopartners.com/_Lu3m47EoZY6ZM7hnoUx_dWNd7ZgqdRLk/14/" rel="nofollow sponsored" onclick="fbq('trackCustom','JoinNowClick');"><span>Join Now</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></a>
+      </div>
+      <p class="terms">New players only. Eligibility and full T&amp;Cs apply.</p>
+    </section>
+    <div class="stamp"><span class="stamp__bolt" aria-hidden="true">ϟ</span><span><small>Featured game</small>Super Scatter</span></div>
+  </main>
+</body>
+</html>
